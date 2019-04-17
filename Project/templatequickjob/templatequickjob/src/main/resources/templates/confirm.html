@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quickjob</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png" th:href="@{apple-icon.png }">
+    <link rel="shortcut icon" href="favicon.ico" th:href="@{favicon.ico }">
+
+
+    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css"
+          th:href="@{/vendors/bootstrap/dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css"
+          th:href="@{/vendors/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css"
+          th:href="@{/vendors/themify-icons/css/themify-icons.css }">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css"
+          th:href="@{/vendors/flag-icon-css/css/flag-icon.min.css }">
+    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css"
+          th:href="@{/vendors/selectFX/css/cs-skin-elastic.css }">
+
+    <link rel="stylesheet" href="assets/css/style.css" th:href="@{/assets/css/style.css }">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'
+          th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800 }">
+
+
+</head>
+
+<body class="bg-dark">
+
+
+<div class="sufee-login d-flex align-content-center flex-wrap">
+    <div class="container">
+        <div class="login-content">
+            <div class="login-logo">
+                <a href="index.html">
+                    <img class="align-content" src="images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="login-form">
+                <div th:if="${successMessage}" class="alert alert-success"
+                     role="alert" th:text=${successMessage}></div>
+
+                <div th:if="${errorMessage}" class="alert alert-danger"
+                     role="alert" th:text=${errorMessage}></div>
+
+                <div th:if="${invalidToken}" class="alert alert-danger"
+                     role="alert" th:text=${invalidToken}></div>
+
+                <form th:if="!${invalidToken}" class="m-t" id="passwordForm" role="form" action="#"
+                      th:object="${setPassword}" th:action="@{/confirm}" method="post">
+                    <input type="hidden" name="token" th:value=${confirmationToken}>
+
+                    <div class="form-group input-group">
+                          <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock"></span>
+                          </span>
+                        <input name="password" type="password" id="password"
+                               placeholder="Password" class="form-control" required/>
+                        <span class="glyphicon"
+                              aria-hidden="true"></span>
+                    </div>
+
+                    <div class="form-group input-group has-feedback">
+                         <span class="input-group-addon">
+                             <span class="glyphicon glyphicon-lock"></span>
+                         </span>
+                        <input type="password" class="form-control" id="signup-password-confirm"
+                               placeholder="Confirm Password" name="ConfirmPassword" data-fv-notempty="true"
+                               data-fv-notempty-message="Please confirm password"
+                               data-fv-identical="true"
+                               data-fv-identical-field="password"
+                               data-fv-identical-message="Both passwords must be identical"/>
+
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+
+                    <!--<div class="form-group">-->
+                        <!--<label>Email address</label>-->
+                        <!--<input type="text" class="form-control" placeholder="Enter Username" name="username"-->
+                               <!--required="true">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label>Password</label>-->
+                        <!--<input type="password" class="form-control" name="password" placeholder="Password"-->
+                               <!--required="true">-->
+                        <!--<div class="clearfix"></div>-->
+                    <!--</div>-->
+
+
+
+                    <button type="submit" name="Sign in" value="login" class="btn btn-success btn-flat m-b-30 m-t-30">
+                        Save
+                    </button>
+                    <!--<div class="social-login-content">-->
+                    <!--<div class="social-button">-->
+                    <!--<button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i-->
+                    <!--class="ti-facebook"></i>Sign in with facebook-->
+                    <!--</button>-->
+                    <!--<button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i-->
+                    <!--class="ti-twitter"></i>Sign in with twitter-->
+                    <!--</button>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div class="register-link m-t-15 text-center">
+                        <p>Already have account ? <a th:href="@{/login}"> Sign in</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="vendors/jquery/dist/jquery.min.js" th:src="@{/vendors/jquery/dist/jquery.min.js}"></script>
+<script src="vendors/popper.js/dist/umd/popper.min.js" th:src="@{/vendors/popper.js/dist/umd/popper.min.js}"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"
+        th:src="@{/vendors/bootstrap/dist/js/bootstrap.min.js}"></script>
+<script src="assets/js/main.js" th:src="@{/assets/js/main.js}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <title>Sun-Shine Farm Inc.</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Sales List</strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Product Code</th>
+                                    <th>Quantity</th>
+                                    <th>Per Unit Sales Price (Tk)</th>
+                                    <th>Sales Date</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="data : ${sales}">
+                                    <td th:text="${data.productName}"></td>
+                                    <td th:text="${data.productCode}"></td>
+                                    <td th:text="${data.quantity}"></td>
+                                    <td th:text="${data.perUnitSalesPrice}"></td>
+                                    <td th:text="${data.salesDate}" th:pattern="yyyy-MM-dd"></td>
+
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Product Code</th>
+                                    <th>Quantity</th>
+                                    <th>Per Unit Sales Price (Tk)</th>
+                                    <th>Sales Date</th>
+
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+</div>
+</body>
+</html>

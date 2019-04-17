@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Update Referance</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        <form th:object="${referance}" th:action="@{/referance/edit/}+${id}" th:method="POST"
+                              class="form-horizontal">
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="edit-name"
+                                                                 class=" form-control-label">Referance Name</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" th:field="*{name}" th:value="${referance.name}" id="edit-name"
+                                           class="form-control"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('name')}"
+                                          th:errors="*{name}">projectName Error</span>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-designation"
+                                                                 class=" form-control-label">Designation</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:value="${referance.designation}" th:field="*{designation}" id="add-designation"
+                                                                    class="form-control" />
+                                    <span th:class="err" th:if="${#fields.hasErrors('designation')}"
+                                          th:errors="*{designation}">designation Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-institution"
+                                                                 class=" form-control-label">Institution Name</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:value="${referance.institution}" th:field="*{institution}" id="add-institution"
+                                                                    class="form-control" />
+                                    <span th:class="err" th:if="${#fields.hasErrors('institution')}"
+                                          th:errors="*{institution}">institution Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-email"
+                                                                 class=" form-control-label">Email</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:value="${referance.email}" th:field="*{email}" id="add-email"
+                                                                    class="form-control" />
+                                    <span th:class="err" th:if="${#fields.hasErrors('email')}"
+                                          th:errors="*{email}">email Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-mobile"
+                                                                 class=" form-control-label">Mobile Number</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:value="${referance.mobile}" th:field="*{mobile}" id="add-mobile"
+                                                                    class="form-control"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('mobile')}"
+                                          th:errors="*{mobile}">mobile Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-skill"
+                                                                 class=" form-control-label">Website URL</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:value="${referance.website}" th:field="*{website}" id="add-skill"
+                                                                    class="form-control" />
+                                    <span th:class="err" th:if="${#fields.hasErrors('website')}"
+                                          th:errors="*{website}">website Error</span>
+                                </div>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Update
+                            </button>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

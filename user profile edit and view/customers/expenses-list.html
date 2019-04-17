@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <title>Sun-Shine Farm Inc.</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Expenses List</strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Expense Name</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Person Name</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="data : ${expenses}">
+                                    <td th:text="${data.expenseName}"></td>
+                                    <td th:text="${data.amount}"></td>
+                                    <td th:text="${data.date}"></td>
+                                    <td th:text="${data.personName}"></td>
+
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Expense Name</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Person Name</th>
+
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+</div>
+</body>
+</html>

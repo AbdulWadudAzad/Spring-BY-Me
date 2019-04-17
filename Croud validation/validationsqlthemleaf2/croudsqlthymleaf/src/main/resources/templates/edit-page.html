@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        .err{
+            color: red;
+        }
+        .succes{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h4>Edit User</h4>
+        </div>
+        <div class="col-4">
+            <a  class="btn" th:href="@{/}" >Home</a>
+            <a class="btn" th:href="@{/add}" >Add User</a>
+            <a class="btn" th:href="@{/rolelist}" >Role List</a>
+            <a class="btn" th:href="@{/addrole}" >Add Role</a>
+        </div>
+    </div>
+</div>
+<form action="#" th:action="@{/edit/} + ${id}" th:object="${user}" method="post">
+    <table>
+        <input type="hidden" th:field="*{id}" th:value="${user.id}"/>
+        <input type="hidden" th:field="*{regiDate}" th:value="${user.regiDate}"/>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}" th:value="${user.name}"/></td>
+            <td th:class="err" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="text" th:field="*{age}" th:value="${user.age}"/></td>
+            <td th:class="err" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" th:field="*{email}" th:value="${user.email}"/></td>
+            <td th:class="err" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+        </tr>
+        <tr>
+            <td>Course:</td>
+            <td>
+                XML: <input type="checkbox" th:value="XML" th:field="*{course}"/>
+                JAVA:<input type="checkbox" th:value="JAVA" th:field="*{course}"/>
+                JS: <input type="checkbox" th:value="JS" th:field="*{course}"/>
+            </td>
+            <td th:class="err" th:if="${#fields.hasErrors('course')}" th:errors="*{course}">Course Error</td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                Male:  <input type="radio" th:value="male" th:field="*{gender}"/>
+                Female:  <input type="radio" th:value="female" th:field="*{gender}"/>
+            </td>
+            <td th:class="err" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Gender Error</td>
+        </tr>
+        <tr>
+            <td>Round:</td>
+            <td>
+                <select th:field="*{round}">
+                    <!--<option th:value="">Select A Round</option>-->
+                    <option th:value="37">37</option>
+                    <option th:value="38">38</option>
+                    <option th:value="39">39</option>
+                </select>
+            </td>
+            <td th:class="err" th:if="${#fields.hasErrors('round')}" th:errors="*{round}">Round Error</td>
+        </tr>
+
+        <tr>
+            <td>Birth Date:</td>
+            <td><input type="date" th:field="*{birthDate}"/></td>
+            <td th:class="err" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}">Birth Date Error</td>
+        </tr>
+
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </table>
+    <br/><br/><br/>
+
+    <a th:href="@{/}">Home</a>
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Update User</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        <span th:class="err" th:text="${existMSG}"></span>
+                        <form th:object="${user}" th:action="@{/user/edit/}+${id}" th:method="POST"
+                              class="form-horizontal">
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-fname"
+                                                                 class=" form-control-label">First Name</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{firstName}"
+                                                                    th:value="${user.firstName}" id="add-fname"
+                                                                    class="form-control"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('firstName')}"
+                                          th:errors="*{firstName}">firstName Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-lname"
+                                                                 class=" form-control-label">Last Name</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{lastName}" id="add-lname"
+                                                                    class="form-control" th:value="${user.lastName}"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('lastName')}"
+                                          th:errors="*{lastName}">lastName Error</span>
+                                </div>
+                            </div>
+
+                            <!--<div class="row form-group">-->
+                            <!--<div class="col col-md-3"><label for="add-password"-->
+                            <!--class=" form-control-label">Password</label></div>-->
+                            <!--<div class="col-12 col-md-9"><input type="text" th:field="*{password}" id="add-password"-->
+                            <!--class="form-control" th:value="${user.password}"/>-->
+                            <!--<span th:class="err" th:if="${#fields.hasErrors('password')}"-->
+                            <!--th:errors="*{password}">password Error</span>-->
+                            <!--</div>-->
+                            <!--</div>-->
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-mobile"
+                                                                 class=" form-control-label">Mobile</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{mobile}" id="add-mobile"
+                                                                    class="form-control" th:value="${user.mobile}"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('mobile')}"
+                                          th:errors="*{mobile}">mobile Error</span>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-birthday"
+                                                                 class=" form-control-label">Birth Day</label></div>
+                                <div class="col-12 col-md-9"><input type="date" th:field="*{birthDate}"
+                                                                    id="add-birthday"
+                                                                    th:value="${user.birthDate}" class="form-control"/>
+                                </div>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Update
+                            </button>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

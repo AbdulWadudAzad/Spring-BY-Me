@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+
+
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Jobs Details</strong>
+                    </div>
+                    <div class="card-body">
+                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                            <tr>
+                                <div class="row">
+                                    <div class="col col-lg-12" th:each="grid : ${viewlist}">
+                                        <section class="card">
+                                            <div class="card-body text-secondary">
+                                                <div>
+                                                    <p>
+                                            <span style="color: #0e6498" th:each="r:${grid.jobTitle}">
+                                                <span th:text="${r.jobTitleName}"></span>
+                                            </span>
+                                                    </p>
+                                                    <h4  th:text="${grid.companyName}"></h4></br>
+                                                <p style="color: #0e6498" >  Vacancy: </p> <p th:text="${grid.vacancy}"></p>
+
+
+                                                    <p style="color: #0e6498" > Level:</p>   <p>
+                                            <span th:each="r:${grid.seniorityLevel}">
+                                                <span th:text="${r.seniority}"></span>
+                                            </span>
+                                                    </p>
+
+                                                    <p>
+                                                    <p style="color: #0e6498" >  Type: </p><span th:each="r:${grid.employmentType}">
+                                                <span th:text="${r.empType}"></span>
+                                            </span>
+                                                    </p>
+
+                                                    <p style="color: #0e6498" >Experience:</p>  <p> <span th:each="r:${grid.yearExperience}">
+                                                <span th:text="${r.year}"></span>
+                                            </span></p>
+
+                                                    <p style="color: #0e6498" > Job Description: </p>  <p th:text="${grid.jobDescription}"></p>
+
+                                                    <p style="color: #0e6498" > Skill:</p> <p> <span th:each="r:${grid.skill}">
+                                                <span th:text="${r.skillName}"></span>
+                                            </span></p>
+
+                                                    <p style="color: #0e6498" > Education: </p>  <p> <span th:each="r:${grid.eduLevel}">
+                                                <span th:text="${r.levelName}"></span>
+                                            </span></p>
+
+                                                    <p style="color: #0e6498" >  Training: </p>  <p> <span th:each="r:${grid.certification}">
+                                                <span th:text="${r.certificName}"></span>
+                                            </span></p>
+
+                                                    <p style="color: #0e6498" >  Language:</p> <p> <span th:each="r:${grid.language}">
+                                                <span th:text="${r.languageName}"></span>
+                                            </span></p>
+
+                                                    <p style="color: #0e6498" >  Address:</p> <p th:text="${grid.fullAddress}"></p>
+
+
+                                                    <div class="card-body">
+
+                                                        <button type="button" class="btn btn-success btn-sm">Apply Online</button>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </tr>
+
+
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+
+</body>
+</html>

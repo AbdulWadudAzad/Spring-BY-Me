@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        table {
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h4>Add Role</h4>
+        </div>
+        <div class="col-4">
+            <a  class="btn" th:href="@{/}" >Home</a>
+            <a class="btn" th:href="@{/add}" >Add User</a>
+            <a class="btn" th:href="@{/rolelist}" >Role List</a>
+            <a class="btn" th:href="@{/addrole}" >Add Role</a>
+        </div>
+    </div>
+</div>
+
+
+
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="u : ${list}" style="background-color: lavenderblush">
+            <td th:text="${u.id}"></td>
+            <td th:text="${u.roleName}"></td>
+            <td><a th:href="@{'/editrole/' + ${u.id}}">edit</a></td>
+            <td><a th:href="@{'/deleterole/' + ${u.id}}">Del</a></td>
+        </tr>
+    </table>
+    <br/><br/><br/>
+
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a th:href="@{/profile}" class="nav-link ">Profile</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a th:href="@{'/update-user/'+${user.id}}" class="nav-link active">Edit</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body card-block">
+                        <form th:object="${user}" th:action="@{/update-user/}+${id}" th:method="POST" enctype="multipart/form-data" class="form-horizontal">
+                            <div class="row form-group">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <input type="hidden" th:field="*{id}" th:value="${user.id}" class="form-control"/>
+                                        <input type="hidden" th:field="*{regiDate}" th:value="${user.regiDate}" class="form-control"/>
+                                        <input type="hidden" th:field="*{userName}" th:value="${user.userName}" class="form-control"/>
+                                        <input type="hidden" th:field="*{email}" th:value="${user.email}" class="form-control"/>
+                                        <input type="hidden" th:field="*{password}" th:value="${user.password}" class="form-control"/>
+                                        <!--<input type="hidden" th:field="*{enabled}" th:value="${user.enabled}" class="form-control"/>-->
+                                        <input type="hidden" th:field="*{confirmationToken}" th:value="${user.confirmationToken}" class="form-control"/>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-fname"
+                                                                 class=" form-control-label">First Name</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{firstName}" th:value="${user.firstName}" id="add-fname"
+                                                                    class="form-control" placeholder="Enter First Name"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('firstName')}"
+                                          th:errors="*{firstName}">firstName Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-lname"
+                                                                 class=" form-control-label">Last Name</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{lastName}" th:value="${user.lastName}" id="add-lname"
+                                                                    class="form-control" placeholder="Enter Last Name"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('lastName')}"
+                                          th:errors="*{lastName}">lastName Error</span>
+                                </div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-mobile"
+                                                                 class=" form-control-label">Mobile</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{mobile}" th:value="${user.mobile}" id="add-mobile"
+                                                                    class="form-control" placeholder="Enter Mobile No"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('mobile')}"
+                                          th:errors="*{mobile}">mobile Error</span>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-birthday"
+                                                                 class=" form-control-label">Birth Day</label></div>
+                                <div class="col-12 col-md-9"><input type="date" th:field="*{birthDate}" th:value="${user.birthDate}" id="add-birthday"
+                                                                    class="form-control" />
+                                </div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="file" class=" form-control-label">Image
+                                </label></div>
+                                <div class="col-12 col-md-9"><input type="file" id="file" name="file"
+                                                                    class="form-control-file"></div>
+                            </div>
+
+
+
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Save
+                            </button>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

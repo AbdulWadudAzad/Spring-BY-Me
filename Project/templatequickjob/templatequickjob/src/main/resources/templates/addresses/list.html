@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+
+
+    <div class="content mt-3" layout:fragment="custom-content">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Address Table</strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>SL.No.</th>
+                                    <th>Home Name/No</th>
+                                    <th>Road Name/No</th>
+                                    <th>City</th>
+                                    <th>Distric</th>
+                                    <th>Division</th>
+                                    <th>Country</th>
+                                    <th>Edit</th>
+                                    <th>Del</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="addre : ${list}">
+                                    <td th:text="${addre.id}"></td>
+                                    <td th:text="${addre.home}"></td>
+                                    <td th:text="${addre.road}"></td>
+                                    <td>
+                                            <span th:each="r:${addre.city}">
+                                                <span th:text="${r.cityName}"></span>
+                                            </span>
+                                    </td>
+                                    <td>
+                                            <span th:each="r:${addre.distric}">
+                                                <span th:text="${r.districName}"></span>
+                                            </span>
+                                    </td>
+                                    <td>
+                                            <span th:each="r:${addre.division}">
+                                                <span th:text="${r.divisionName}"></span>
+                                            </span>
+                                    </td>
+                                    <td>
+                                            <span th:each="r:${addre.country}">
+                                                <span th:text="${r.countryName}"></span>
+                                            </span>
+                                    </td>
+
+
+
+
+                                    <td>
+                                        <a th:href="@{'/address/edit/'+${addre.id}}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a th:href="@{'/address/del/'+${addre.id}}">Del</a>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+</body>
+</html>

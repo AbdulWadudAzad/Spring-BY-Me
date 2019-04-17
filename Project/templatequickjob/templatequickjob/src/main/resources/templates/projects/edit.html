@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Update Project</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        <form th:object="${project}" th:action="@{/project/edit/}+${id}" th:method="POST"
+                              class="form-horizontal">
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="edit-projectName"
+                                                                 class=" form-control-label">Project Name</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" th:field="*{projectName}" th:value="${project.projectName}" id="edit-projectName"
+                                           class="form-control"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('projectName')}"
+                                          th:errors="*{projectName}">projectName Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-Description"
+                                                                 class=" form-control-label">Project Description</label></div>
+                                <div class="col-12 col-md-9">
+                                    <textarea class="form-control" rows="3" id="add-Description"
+                                              style="margin-top: 10px;"  th:value="${project.description}"
+                                              name="notes" th:field="*{description}"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('description')}"
+                                          th:errors="*{description}">description Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-technologyUsed"
+                                                                 class=" form-control-label">Technology Used</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:value="${project.technologyUsed}" th:field="*{technologyUsed}" id="add-technologyUsed"
+                                                                    class="form-control" />
+                                    <span th:class="err" th:if="${#fields.hasErrors('technologyUsed')}"
+                                          th:errors="*{technologyUsed}">technologyUsed Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-liveUrl"
+                                                                 class=" form-control-label">Live URL</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:value="${project.liveUrl}" th:field="*{liveUrl}" id="add-liveUrl"
+                                                                    class="form-control" />
+                                    <span th:class="err" th:if="${#fields.hasErrors('liveUrl')}"
+                                          th:errors="*{liveUrl}">liveUrl Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-framework"
+                                                                 class=" form-control-label">Framework Used</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:value="${project.framework}" th:field="*{framework}" id="add-framework"
+                                                                    class="form-control" />
+                                    <span th:class="err" th:if="${#fields.hasErrors('framework')}"
+                                          th:errors="*{framework}">framework Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-language"
+                                                                 class=" form-control-label">Language Used</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:value="${project.language}" th:field="*{language}" id="add-language"
+                                                                    class="form-control"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('language')}"
+                                          th:errors="*{language}">language Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-skill"
+                                                                 class=" form-control-label">Project Duration</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:value="${project.duration}" th:field="*{duration}" id="add-skill"
+                                                                    class="form-control" />
+                                    <span th:class="err" th:if="${#fields.hasErrors('duration')}"
+                                          th:errors="*{duration}">duration Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-startDate"
+                                                                 class=" form-control-label">Start Date</label></div>
+                                <div class="col-12 col-md-9"><input type="date" th:value="${project.startDate}"
+                                                                    th:text="${#dates.format(project.startDate, 'yyyy-MM-dd')}" th:field="*{startDate}" id="add-startDate"
+                                                                    required="true"  class="form-control"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('startDate')}"
+                                          th:errors="*{startDate}">startDate Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-endDate"
+                                                                 class=" form-control-label">End Date</label></div>
+                                <div class="col-12 col-md-9"><input type="date" th:value="${project.endDate}" th:text="${#dates.format(project.endDate, 'yyyy-MM-dd')}"
+                                                                    th:field="*{endDate}" id="add-endDate"
+                                                                    required="true"  class="form-control"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('endDate')}"
+                                          th:errors="*{endDate}">endDate Error</span>
+                                </div>
+                            </div>
+
+
+
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Update
+                            </button>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <br >
+        <!--<img th:src="@{/images/403.jpg} >-->
+    <img th:src="@{/images/403.jpg}" width="100%" height="100%">
+        <br/><br/>
+    <button id="payment-button" type="submit"
+            class="btn btn-lg btn-info btn-block">
+       &nbsp;
+        <span id="payment-button-amount"><a th:href="@{/}" style="color: white">Go Home</a></span>
+    </button>
+    </div>
+</div>
+</body>
+</html>

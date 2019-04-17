@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Add Address</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        <span th:class="succes" th:text="${successMsg}"></span>
+                        <form th:object="${address}" th:action="@{/address/add}" th:method="POST" class="form-horizontal">
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-home"
+                                                                 class=" form-control-label">Home Name/No.</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{home}" id="add-home"
+                                                                    class="form-control" placeholder="Home Name/No."/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('home')}"
+                                          th:errors="*{home}">home Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-city"
+                                                                 class=" form-control-label">Road Name/No.</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{road}" id="add-city"
+                                                                    class="form-control" placeholder="Road Name/No."/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('road')}"
+                                          th:errors="*{road}">road Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Country</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{country}" data-placeholder="Choose Country..."  class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="country: ${countrylist}" th:value="${country.id}"><span th:text="${country.countryName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Division</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{division}" data-placeholder="Choose Division..."  class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="division: ${divisionlist}" th:value="${division.id}"><span th:text="${division.divisionName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Distric</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{distric}" data-placeholder="Choose Distric..."  class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="division: ${districlist}" th:value="${division.id}"><span th:text="${division.districName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">City</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{city}" data-placeholder="Choose City..."  class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="city: ${citylist}" th:value="${city.id}"><span th:text="${city.cityName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Add
+                            </button>
+
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

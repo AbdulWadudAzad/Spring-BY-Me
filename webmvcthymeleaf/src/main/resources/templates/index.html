@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h3>Hello World</h3>
+<span style="color: seashell; font-weight: bolder"
+<form th:object="user" th:action="@{/}" th:method="POST">
+    <input th:field="*{user.neme}"/><br/>
+    <input th:field="*{user.username}"/><br/>
+    <input th:field="*{user.password}"/><br/>
+    <button type="submit" value="save"/>
+
+</form>
+</body>
+</html>

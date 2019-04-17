@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form</title>
+    <style type="text/css">
+        .err{
+            color: red;
+        }
+        .succes{
+            color:green;
+        }
+    </style>
+</head>
+<body>
+<span th:class="succes" th:text="${successMsg}"></span>
+<form  th:action="@{/add}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}" /></td>
+            <td th:class="err" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="text" th:field="*{age}" /></td>
+            <td th:class="err" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" th:field="*{email}" /></td>
+            <td th:class="err" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+        </tr>
+
+        <tr>
+            <td>Course Completed:</td>
+            <td>
+               XML: <input type="checkbox" th:value="xml" th:field="*{courseCompleted}" />
+              Java:  <input type="checkbox" th:value="java" th:field="*{courseCompleted}" />
+              JS:  <input type="checkbox" th:value="js" th:field="*{courseCompleted}" /></td>
+            <td th:class="err" th:if="${#fields.hasErrors('courseCompleted')}" th:errors="*{courseCompleted}">Course Error</td>
+        </tr>
+
+        <tr>
+            <td>Gender:</td>
+            <td>Female:<input type="radio" th:value="female" th:field="*{gender}" />
+                Male:<input type="radio" th:value="male" th:field="*{gender}" /></td>
+            <td th:class="err" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Gender Error</td>
+        </tr>
+        <tr>
+            <td>Round:</td>
+            <td>
+             <select th:field="*{round}">
+                 <option th:value="37">37</option>
+                 <option th:value="38">38</option>
+                 <option th:value="39">39</option>
+             </select>
+
+            </td>
+            <td th:class="err" th:if="${#fields.hasErrors('round')}" th:errors="*{round}">Round Error</td>
+        </tr>
+
+        <tr>
+            <td>Birth Date:</td>
+            <td><input type="date" th:field="*{birthDate}" /></td>
+            <td th:class="err" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}">BirthDate Error</td>
+        </tr>
+
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </table>
+</form>
+
+<a th:href="@{/}">Home</a>
+</body>
+</html>

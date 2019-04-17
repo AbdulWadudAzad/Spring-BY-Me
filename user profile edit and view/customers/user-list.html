@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <title>Sun-Shine Farm Inc.</title>
+</head>
+
+<body>
+<div layout:fragment="custom-content">
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">User List</strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>User Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile No.</th>
+                                    <th>Name</th>
+                                    <th>Registration date</th>
+                                    <th>Role Name</th>
+                                    <th>Edit</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="data : ${user}">
+                                    <td th:text="${data.userName}"></td>
+                                    <td th:text="${data.email}"></td>
+                                    <td th:text="${data.mobile}"></td>
+                                    <td th:text="${data.name}"></td>
+
+                                    <td th:text="${data.registrationDate}" th:pattern="yyyy-MM-dd"></td>
+                                    <td>
+                                          <span th:each="r : ${data.roles}">
+                                                 <span th:text="${r.roleName} + ' '"/>
+                                          </span>
+                                    </td>
+                                    <td><a th:href="@{'/update-user/' + ${data.id}}">edit</a> </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>User Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile No.</th>
+                                    <th>Name</th>
+                                    <th>Registration date</th>
+                                    <th>Role Name</th>
+                                    <th>Edit</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+</div>
+</body>
+
+</html>

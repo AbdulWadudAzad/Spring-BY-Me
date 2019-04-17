@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+       .error{
+           color: red;;
+       }
+        .success{
+            color: green;;
+        }
+    </style>
+</head>
+<body>
+<span th:class="success" th:text="${successMsg}"></span>
+
+<form action="#" th:action="@{/}" th:object="${}">
+
+
+</form>
+
+</body>
+</html>

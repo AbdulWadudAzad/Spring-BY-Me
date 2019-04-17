@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+
+
+    <div class="content mt-3" layout:fragment="custom-content">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Project Table</strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>SL.No.</th>
+                                    <th>Project Name</th>
+                                    <th>Description</th>
+                                    <th>Technology</th>
+                                    <th>URL</th>
+                                    <th>Framework</th>
+                                    <th>Language</th>
+                                    <th>Duration</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+
+                                    <th>Edit</th>
+                                    <th>Del</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="p : ${list}">
+                                    <td th:text="${p.id}"></td>
+                                    <td th:text="${p.projectName}"></td>
+                                    <td th:text="${p.description}"></td>
+                                    <td th:text="${p.technologyUsed}"></td>
+                                    <td th:text="${p.liveUrl}"></td>
+                                    <td th:text="${p.framework}"></td>
+                                    <td th:text="${p.language}"></td>
+                                    <td th:text="${p.duration}"></td>
+                                    <td th:text="${p.startDate}"></td>
+                                    <td th:text="${p.endDate}"></td>
+                                    <td>
+                                        <a th:href="@{'/project/edit/'+${p.id}}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a th:href="@{'/project/del/'+${p.id}}">Del</a>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+</body>
+</html>

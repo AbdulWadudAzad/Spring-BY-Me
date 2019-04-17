@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+    <style type="text/css">
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a th:href="@{'/update-user/'+${user.id}}" class="nav-link ">Edit</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body card-block">
+
+                        <form role="form" th:object="${user}" th:action="@{/profile/} + ${id}" th:method="POST">
+
+
+                            <div class="col-md-4">
+                            <img th:src="${user.getFilePath()}" th:alt="${user.fileName}" height="150" width="150" class="center" />
+                            </div>
+
+
+                            <div class="col-md-8">
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Name</label>
+                                    <div class="col-lg-9">
+                                        <p style="color: black"><span th:text="*{firstName}"></span> <span th:text="*{lastName}"></span></p>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                    <div class="col-lg-9">
+                                        <span th:text="*{email}"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">User Name</label>
+                                    <div class="col-lg-9">
+                                        <span th:text="*{userName}"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Birth Date</label>
+                                    <div class="col-lg-9">
+                                        <span th:text="*{birthDate}"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Last Update</label>
+                                    <div class="col-lg-9">
+                                        <span th:text="*{lastModifiedDate}"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Status</label>
+                                    <div class="col-lg-9">
+                                        <span th:text="*{enabled}"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                        <!--/row-->
+                    </div>
+
+
+                </div>
+            </div>
+            <!--<div class="col-lg-4 order-lg-1 text-center">-->
+            <!--<img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">-->
+            <!--<h6 class="mt-2">Upload a different photo</h6>-->
+            <!--<label class="custom-file">-->
+            <!--<input type="file" id="file" class="custom-file-input">-->
+            <!--<span class="custom-file-control">Choose file</span>-->
+            <!--</label>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

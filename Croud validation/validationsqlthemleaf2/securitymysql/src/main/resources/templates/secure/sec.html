@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2><a th:href="@{/logout}">Logout</a> </h2>
+<h1>You name is <span th:text="${name}"></span></h1>
+<h1>You are logged in as <span th:text="${username}"></span></h1>
+<span sec:authorize="hasRole('ROLE_SUPERADMIN')">
+    Super admin can only be access
+</span>
+
+<span sec:authorize="hasRole('ROLE_ADMIN')">
+    admin can only be access
+</span>
+
+
+<span sec:authorize="hasRole('ROLE_USER')">
+   User can only be access
+</span>
+</body>
+</html>

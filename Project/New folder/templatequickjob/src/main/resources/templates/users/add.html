@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Add User</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        <span th:class="succes" th:text="${successMsg}"></span>
+                        <span th:class="err" th:text="${rejectMsg}"></span>
+                        <form th:object="${user}" th:action="@{/user/add}" th:method="POST" class="form-horizontal">
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-fname"
+                                                                 class=" form-control-label">First Name</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{firstName}" id="add-fname"
+                                                                    class="form-control" placeholder="Enter First Name"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('firstName')}"
+                                          th:errors="*{firstName}">firstName Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-lname"
+                                                                 class=" form-control-label">Last Name</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{lastName}" id="add-lname"
+                                                                    class="form-control" placeholder="Enter Last Name"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('lastName')}"
+                                          th:errors="*{lastName}">lastName Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-uname"
+                                                                 class=" form-control-label">User Name</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{userName}" id="add-uname"
+                                                                    class="form-control" placeholder="Enter User Name"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('userName')}"
+                                          th:errors="*{userName}">userName Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-password"
+                                                                 class=" form-control-label">Password</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{password}" id="add-password"
+                                                                    class="form-control" placeholder="Enter password"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('password')}"
+                                          th:errors="*{password}">password Error</span>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-email"
+                                                                 class=" form-control-label">Email</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{email}" id="add-email"
+                                                                    class="form-control" placeholder="Enter Email"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('email')}"
+                                          th:errors="*{email}">email Error</span>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-mobile"
+                                                                 class=" form-control-label">Mobile</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{mobile}" id="add-mobile"
+                                                                    class="form-control" placeholder="Enter Mobile No"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('mobile')}"
+                                          th:errors="*{mobile}">mobile Error</span>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-birthday"
+                                                                 class=" form-control-label">Birth Day</label></div>
+                                <div class="col-12 col-md-9"><input type="date" th:field="*{birthDate}" id="add-birthday"
+                                                                    class="form-control" />
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Save User
+                            </button>
+
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

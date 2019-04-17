@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <title>Sun-Shine Farm Inc.</title>
+</head>
+
+<body>
+<div layout:fragment="custom-content">
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Equipment List</strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Product Code</th>
+                                    <th>Quantity</th>
+                                    <th>Purchase Price</th>
+                                    <th>Person Name</th>
+                                    <th>Crops</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="data : ${equipment}">
+                                    <td th:text="${data.name}"></td>
+                                    <td th:text="${data.productCode}"></td>
+                                    <td th:text="${data.quantity}"></td>
+                                    <td th:text="${data.purchasePrice}"></td>
+                                    <td th:text="${data.personName}"></td>
+                                    <td>
+                                          <span th:each="r : ${data.crops}">
+                                                 <span th:text="${r.name} + ' '"/>
+                                          </span>
+                                    </td>
+
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Product Code</th>
+                                    <th>Quantity</th>
+                                    <th>Purchase Price</th>
+                                    <th>Person Name</th>
+                                    <th>Crops</th>
+
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+</div>
+</body>
+
+</html>

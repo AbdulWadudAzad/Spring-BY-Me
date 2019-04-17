@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="header-left" th:fragment="topleft">
+    <div class="logo-name">
+        <a th:href="@{/}"> <h1>PMS</h1>
+            <!--<img id="logo" src="" alt="Logo"/>-->
+        </a>
+    </div>
+    <!--search-box-->
+    <div class="search-box">
+        <form>
+            <input type="text" placeholder="Search..." required="">
+            <input type="submit" value="">
+        </form>
+    </div><!--//end-search-box-->
+    <div class="clearfix"> </div>
+</div>
+
+</body>
+</html>

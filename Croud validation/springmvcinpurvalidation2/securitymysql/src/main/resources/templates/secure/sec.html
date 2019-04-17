@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<span sec:authorize="hasRole('ROLE_SUPERADMIN')">
+    <div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h4>Add Role</h4>
+        </div>
+        <div class="col-4">
+            <!--<a  class="btn" th:href="@{/}" >Home</a>-->
+            <!--<a class="btn" th:href="@{/add}" >Add User</a>-->
+            <a class="btn" th:href="@{/rolelist}" >Role List</a>
+            <a class="btn" th:href="@{/addrole}" >Add Role</a>
+        </div>
+    </div>
+</div>
+</span>
+
+
+
+<h1>You name is <span th:text="${name}"></span></h1>
+<h1>You are logged in as <span th:text="${username}"></span></h1>
+
+
+<span sec:authorize="hasRole('ROLE_ADMIN')">
+    admin can only be access
+</span>
+
+
+<span sec:authorize="hasRole('ROLE_USER')">
+   User can only be access
+</span>
+
+<h2><a th:href="@{/logout}">Logout</a> </h2>
+</body>
+</html>

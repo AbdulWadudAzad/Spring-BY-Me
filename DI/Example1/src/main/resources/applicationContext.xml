@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="a" class="com.azad.Address">
+        <constructor-arg value="Dhanmondi"></constructor-arg>
+        <constructor-arg value="Dhaka"></constructor-arg>
+        <constructor-arg value="Bangladesh"></constructor-arg>
+    </bean>
+    <bean id="de" class="com.azad.Department">
+
+        <constructor-arg value="1001"></constructor-arg>
+        <constructor-arg value="LLB"></constructor-arg>
+    </bean>
+
+
+    <bean id="st" class="com.azad.Student">
+        <constructor-arg value="10000"></constructor-arg>
+        <constructor-arg value="Azad"></constructor-arg>
+        <constructor-arg>
+            <ref bean="a"></ref>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="de"></ref>
+        </constructor-arg>
+    </bean>
+
+
+</beans>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-sm navbar-default" th:fragment="sidebarnav">
+
+    <div class="navbar-header">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu"
+                aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" th:href="@{/}"><img th:src="@{/images/logo.png}" alt="Logo"></a>
+        <a class="navbar-brand hidden" th:href="@{/}"><img th:src="@{/images/logo2.png}" alt="Logo"></a>
+    </div>
+
+    <div id="main-menu" class="main-menu collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active">
+                <a th:href="@{/}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+            </li>
+            <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
+
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Role</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/role/list}">Role List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/role/add}">Role Add</a></li>
+
+                </ul>
+            </li>
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-user"></i>User</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/user/list}">User List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/user/add}">User Add</a></li>
+
+                </ul>
+            </li>
+
+
+
+
+            <h3 class="menu-title">Job Post Elements</h3><!-- /.menu-title -->
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Job Title</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/jobtitle/list}">Job Title List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/jobtitle/add}">Job Title Add</a></li>
+
+                </ul>
+            </li>
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Country</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/country/list}">Country List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/country/add}">Country Add</a></li>
+
+                </ul>
+            </li>
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Division</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/division/list}">Division List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/division/add}">Division Add</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>City</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/city/list}">City List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/city/add}">City Add</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Employment Type</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/employmenttype/list}">Employment Type List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/employmenttype/add}">Employment Type Add</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Job function</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/jobfunction/list}">Job function List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/jobfunction/add}">Job function Add</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Company Industry</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/companyindustry/list}">Company Industry List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/companyindustry/add}">Company Industry Add</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Seniority Level</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/senioritylevel/list}">Seniority Level List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/senioritylevel/add}">Seniority Level Add</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Skill</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/skill/list}">Skill List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/skill/add}">Skilll Add</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Hear About Us</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/hearus/list}">Hear Us List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/hearus/add}">Add Hear Us</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Work Experience</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/workexperience/list}">Experience List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/workexperience/add}">Experience Add</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Language</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/language/list}">Language List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/language/add}">Language Add</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Certification</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/certification/list}">Certification List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/certification/add}">Certification Add</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Tool Experience</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/tool/list}">Tool List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/tool/add}">Tool Add</a></li>
+
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Education Level</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/edulevel/list}">Edu Level List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/edulevel/add}">Edu Level Add</a></li>
+
+                </ul>
+            </li>
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Education Subject</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-table"></i><a th:href="@{/edusubject/list}">Edu Subject List</a></li>
+                    <li><i class="menu-icon fa fa-th"></i><a th:href="@{/edusubject/add}">Edu Subject Add</a></li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
+            </li>
+
+
+
+
+
+
+            <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
+
+            <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
+                    <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
+                    <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+
+</body>
+</html>

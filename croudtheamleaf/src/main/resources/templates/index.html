@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Home </title>
+</head>
+<body>
+<h3>Hello World</h3>
+<span style="color: green; font-weight: 900" th:text="${successMsg}"></span>
+<form th:object="${student}" th:action="@{/}" th:method="POST">
+    Name: <input th:field="*{name}"/><br/>
+    Password: <input th:field="*{age}"/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

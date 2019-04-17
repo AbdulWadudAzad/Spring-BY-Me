@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+        <div th:if="${param.error}">
+            invalid uname and password
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+    </div>
+<form th:action="@{/login}" method="post">
+    <div><label>User Name:<input type="text" name="username"/></label></div>
+    <div><label>Passwword:<input type="password" name="password"/></label></div>
+    <div><input type="submit" value="Sign in" /></div>
+</form>
+        <h2><a th:href="@{/logout}">Logout</a> </h2>
+</body>
+</html>

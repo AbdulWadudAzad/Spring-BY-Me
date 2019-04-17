@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Update City</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        <span th:class="err" th:text="${successMsg}"></span>
+                        <form th:object="${city}" th:action="@{/city/edit/}+${id}" th:method="POST"
+                              class="form-horizontal">
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="edit-role"
+                                                                 class=" form-control-label">City Name</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" th:field="*{cityName}" th:value="${city.cityName}" id="edit-role"
+                                           class="form-control"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('cityName')}"
+                                          th:errors="*{cityName}">cityName Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Distric</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{distric}"  class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="division: ${districlist}" th:value="${division.id}"><span th:text="${division.districName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Update
+                            </button>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

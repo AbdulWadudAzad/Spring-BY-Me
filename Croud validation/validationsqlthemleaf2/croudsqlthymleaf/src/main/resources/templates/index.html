@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        table{
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h4>Our Spring MVC Creud App</h4>
+        </div>
+        <div class="col-4">
+            <a  class="btn" th:href="@{/}" >Home</a>
+            <a class="btn" th:href="@{/add}" >Add User</a>
+            <a class="btn" th:href="@{/rolelist}" >Role List</a>
+            <a class="btn" th:href="@{/addrole}" >Add Role</a>
+        </div>
+    </div>
+
+
+    <table class="table table-striped">
+        <tr >
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Round</th>
+            <th>Gender</th>
+            <th>Course</th>
+            <th>Birth Date</th>
+            <th>Registration</th>
+            <th>Last update</th>
+            <th>Photo</th>
+            <th>Role Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="u : ${list}" style="background-color: lavenderblush">
+            <td th:text="${u.id}"></td>
+            <td th:text="${u.name}"></td>
+            <td th:text="${u.age}"></td>
+            <td th:text="${u.email}"></td>
+            <td th:text="${u.round}"></td>
+            <td th:text="${u.gender}"></td>
+            <td>
+    <span th:each="c : ${u.course}">
+        <span th:text="${c}"/>
+    </span>
+            </td>
+            <td th:text="${u.birthDate}" th:pattern="yyyy-MM-dd"></td>
+            <td th:text="${u.regiDate}" ></td>
+            <td th:text="${u.lastUpdate}" ></td>
+            <td ><img th:src="@{${u.getFilePath()}}" height="100" width="100"/></td>
+            <td>
+    <span th:each="c : ${u.roles}">
+        <span th:text="${c.roleName}"/>
+    </span>
+            </td>
+
+            <td><a th:href="@{'/edit/' + ${u.id}}">edit</a></td>
+            <td><a th:href="@{'/del/' + ${u.id}}">Del</a></td>
+        </tr>
+    </table>
+    <br/><br/><br/>
+
+
+
+    <!--<a th:href="@{'/edit/' }">edit</a>-->
+</div>
+</body>
+</html>

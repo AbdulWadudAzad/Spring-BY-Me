@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quickjob </title>
+    <meta name="description" content="Quickjob Admin">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png" th:href="@{apple-icon.png}">
+    <link rel="shortcut icon" href="favicon.ico" th:href="@{favicon.ico}">
+
+    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css" th:href="@{/vendors/bootstrap/dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css" th:href="@{/vendors/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css" th:href="@{/vendors/themify-icons/css/themify-icons.css}">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css" th:href="@{/vendors/flag-icon-css/css/flag-icon.min.css}">
+    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css" th:href="@{/vendors/selectFX/css/cs-skin-elastic.css}">
+    <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css" th:href="@{/vendors/jqvmap/dist/jqvmap.min.css}">
+
+
+    <link rel="stylesheet" href="assets/css/style.css" th:href="@{/assets/css/style.css}">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css' th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800}">
+    <link rel="stylesheet" href="vendors/chosen/chosen.min.css" th:href="@{/vendors/chosen/chosen.min.css}" >
+    <!-- start css for add-->
+    <link rel="stylesheet" href="vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css" th:href="@{/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css}">
+    <link rel="stylesheet" href="vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" th:href="@{/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css}">
+    <!-- end css for add-->
+</head>
+<body>
+
+
+
+<div id="right-panel" class="right-panel">
+
+    <div th:replace="~{fragments2/topnavbar.html :: toparea2}"></div>
+    <!--<div th:replace="~{fragments/breadcome.html :: bread}"></div>-->
+
+    <div layout:fragment="custom-content2">
+
+    </div>
+
+    <div >
+        <!--<div th:replace="~{fragments/footer.html :: copyright}"></div>-->
+    </div>
+    <!--<footer id="bottom-panel" class="bottom-panel">
+
+        <div th:replace="~{fragments/footer.html :: copyright}"></div>
+    </footer>-->
+</div>
+
+
+
+<script src="vendors/jquery/dist/jquery.min.js"  th:src="@{/vendors/jquery/dist/jquery.min.js }"></script>
+<script src="vendors/popper.js/dist/umd/popper.min.js" th:src="@{/vendors/popper.js/dist/umd/popper.min.js}"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js" th:src="@{/vendors/bootstrap/dist/js/bootstrap.min.js}"></script>
+<script src="assets/js/main.js" th:src="@{/assets/js/main.js}"></script>
+
+
+<script src="vendors/chart.js/dist/Chart.bundle.min.js" th:src="@{/vendors/chart.js/dist/Chart.bundle.min.js}"></script>
+<script src="assets/js/dashboard.js" th:src="@{/assets/js/dashboard.js}"></script>
+<script src="assets/js/widgets.js" th:src="@{/assets/js/widgets.js}"></script>
+<script src="vendors/jqvmap/dist/jquery.vmap.min.js" th:src="@{/vendors/jqvmap/dist/jquery.vmap.min.js}"></script>
+<script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js" th:src="@{/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js}"></script>
+<script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js" th:src="@{/vendors/jqvmap/dist/maps/jquery.vmap.world.js}"></script>
+<script>
+    (function ($) {
+        "use strict";
+
+        jQuery('#vmap').vectorMap({
+            map: 'world_en',
+            backgroundColor: null,
+            color: '#ffffff',
+            hoverOpacity: 0.7,
+            selectedColor: '#1de9b6',
+            enableZoom: true,
+            showTooltip: true,
+            values: sample_data,
+            scaleColors: ['#1de9b6', '#03a9f5'],
+            normalizeFunction: 'polynomial'
+        });
+    })(jQuery);
+</script>
+
+
+<!-- start script for add -->
+<script th:src="@{vendors/jquery-validation/dist/jquery.validate.min.js}"></script>
+<script th:src="@{vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js}"></script>
+<!-- end script for add list-->
+<!-- start script for show list-->
+<script src="vendors/datatables.net/js/jquery.dataTables.min.js" th:src="@{/vendors/datatables.net/js/jquery.dataTables.min.js }"></script>
+<script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js" th:src="@{/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js }"></script>
+<script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js" th:src="@{/vendors/datatables.net-buttons/js/dataTables.buttons.min.js }"></script>
+<script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" th:src="@{/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js }"></script>
+<script src="vendors/jszip/dist/jszip.min.js" th:src="@{/vendors/jszip/dist/jszip.min.js }"></script>
+<script src="vendors/pdfmake/build/pdfmake.min.js" th:src="@{/vendors/pdfmake/build/pdfmake.min.js }"></script>
+<script src="vendors/pdfmake/build/vfs_fonts.js" th:src="@{/vendors/pdfmake/build/vfs_fonts.js }"></script>
+<script src="vendors/datatables.net-buttons/js/buttons.html5.min.js" th:src="@{/vendors/datatables.net-buttons/js/buttons.html5.min.js }"></script>
+<script src="vendors/datatables.net-buttons/js/buttons.print.min.js" th:src="@{/vendors/datatables.net-buttons/js/buttons.print.min.js }"></script>
+<script src="vendors/datatables.net-buttons/js/buttons.colVis.min.js" th:src="@{/vendors/datatables.net-buttons/js/buttons.colVis.min.js }"></script>
+<script src="assets/js/init-scripts/data-table/datatables-init.js" th:src="@{/assets/js/init-scripts/data-table/datatables-init.js }"></script>
+<!-- end script for show -->
+<script src="vendors/chosen/chosen.jquery.min.js" th:src="@{/vendors/chosen/chosen.jquery.min.js}"></script>
+
+<script>
+    jQuery(document).ready(function () {
+        jQuery(".standardSelect").chosen({
+            disable_search_threshold: 10,
+            no_results_text: "Oops, nothing found!",
+            width: "100%"
+        });
+    });
+</script>
+
+<!--<script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js}"></script>-->
+<!--<script th:src="@{https://iamrohit.in/lab/js/location.js}"></script>-->
+</body>
+</html>

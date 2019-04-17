@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        table {
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <h2>Our Spring MVC Creud App</h2>
+        </div>
+        <div class="col-2">
+            <a class="btn" th:href="@{/add}" >Add User</a>
+        </div>
+    </div>
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Round</th>
+        <th>Gender</th>
+        <th>Course</th>
+        <th>Birth Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="u : ${list}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.name}"></td>
+        <td th:text="${u.age}"></td>
+        <td th:text="${u.email}"></td>
+        <td th:text="${u.round}"></td>
+        <td th:text="${u.gender}"></td>
+        <td>
+          <span  th:each="c : ${u.courseCompleted}">
+               <span th:text="${c}"></span>
+          </span>
+
+        </td>
+        <td th:text="${u.birthDate}" th:pattern="yyyy-MM-dd"></td>
+        <td><a th:href="@{'/edit/' + ${u.id}}">edit</a></td>
+        <td><a th:href="@{'/del/' + ${u.id}}">Del</a></td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

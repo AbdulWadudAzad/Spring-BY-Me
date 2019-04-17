@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+
+
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Exam Table</strong>
+                    </div>
+                    <div class="card-body">
+                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>SL.No.</th>
+                                <th>Exam Level</th>
+                                <th>Subject </th>
+                                <th>Board/University </th>
+                                <th>Result </th>
+                                <th>Year</th>
+                                <th>Edit</th>
+                                <th>Del</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="exam : ${list}">
+                                <td th:text="${exam.id}"></td>
+                                <td>
+                                            <span th:each="r:${exam.eduLevel}">
+                                                <span th:text="${r.levelName}"></span>
+                                            </span>
+                                </td>
+                                <td>
+                                            <span th:each="r:${exam.eduSubject}">
+                                                <span th:text="${r.subName}"></span>
+                                            </span>
+                                </td>
+                                <td>
+                                            <span th:each="r:${exam.board}">
+                                                <span th:text="${r.boardName}"></span>
+                                            </span>
+                                </td>
+                                <td>
+                                            <span th:each="r:${exam.result}">
+                                                <span th:text="${r.resultName}"></span>
+                                            </span>
+                                </td>
+
+                                <td th:text="${exam.year}"></td>
+
+
+                                <td>
+                                    <a th:href="@{'/exam/edit/'+${exam.id}}">Edit</a>
+                                </td>
+                                <td>
+                                    <a th:href="@{'/exam/del/'+${exam.id}}">Del</a>
+                                </td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+</body>
+</html>

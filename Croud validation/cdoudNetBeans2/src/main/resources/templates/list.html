@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html
+     xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Student | list</title>
+       
+    </head>
+    <body>
+        <div><h2>List of Student</h2></div>
+         <div>
+            <table>
+                <tr>
+                    <th>SL.NO.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>  
+                
+                <tr th:each="stu:${list}">
+                    <td th:text="${stu.id}"></td>
+                     <td th:text="${stu.name}"></td>
+                     <td th:text="${stu.email}"></td>
+                     <td>
+                            <a th:href="@{'/student/edit/'+${stu.id}}">Edit</a>
+                     </td>    
+                     <td>
+                            <a th:href="@{'/student/delete/'+${stu.id}}">Del</a>
+                     </td>                                                                                                                                                                                                                                                                                                                                          
+                    
+                </tr>  
+                
+            </table>
+            
+        </div>
+    </body>
+</html>

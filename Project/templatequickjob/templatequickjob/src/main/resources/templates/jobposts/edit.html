@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs">
+
+                            <li class="nav-item">
+                                <a href="" data-target="#profile" data-toggle="tab" class="nav-link active"> Edit Job
+                                    Post</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a th:href="@{/jobpost/list}" class="nav-link ">Job Post</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="card-body card-block">
+                        <span th:class="err" th:text="${successMsg}"></span>
+                        <form th:object="${jobPost}" th:action="@{/jobpost/edit/}+${id}" th:method="POST"
+                              class="form-horizontal">
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-companyName"
+                                                                 class=" form-control-label">Company</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{companyName}"
+                                                                    id="add-companyName"
+                                                                    th:value="${jobPost.companyName}"
+                                                                    class="form-control"
+                                                                    placeholder="Enter Company Name"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('companyName')}"
+                                          th:errors="*{companyName}">companyName Error</span>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Job Title</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{jobTitle}" data-placeholder="Choose Job Title"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="jobTitle: ${jobTitlelist}" th:value="${jobTitle.id}"><span
+                                                th:text="${jobTitle.jobTitleName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Job Category</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{jobCategory}" data-placeholder="Choose Job Category"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="jobCategory: ${jobCategorylist}"
+                                                th:value="${jobCategory.id}"><span
+                                                th:text="${jobCategory.jobCategoryName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Industry Type</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{companyIndustry}"
+                                            data-placeholder="Choose Company Industry Type"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="companyIndustry: ${companyIndustrylist}"
+                                                th:value="${companyIndustry.id}"><span
+                                                th:text="${companyIndustry.comIndustry}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-Vacancy"
+                                                                 class=" form-control-label">Vacancy</label></div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{vacancy}"
+                                                                    id="add-Vacancy" th:value="${jobPost.vacancy}"
+                                                                    class="form-control"
+                                                                    placeholder="Enter Vacancy in Number or N/A"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('vacancy')}"
+                                          th:errors="*{vacancy}">vacancy Error</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Employee Type</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{employmentType}" data-placeholder="Choose Employee Type"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="employmentType: ${employmentTypelist}"
+                                                th:value="${employmentType.id}"><span
+                                                th:text="${employmentType.empType}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Seniority Level</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{seniorityLevel}" data-placeholder="Choose Seniority Level"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="seniorityLevel: ${seniorityLevellist}"
+                                                th:value="${seniorityLevel.id}"><span
+                                                th:text="${seniorityLevel.seniority}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Skill</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{skill}" data-placeholder="Choose Skills"
+                                            multiple class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="skill: ${skilllist}" th:value="${skill.id}"><span
+                                                th:text="${skill.skillName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Year Experiene</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{yearExperience}"
+                                            data-placeholder="Choose Year of Work Experiene"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="yearExperience: ${yearExperiencelist}"
+                                                th:value="${yearExperience.id}"><span
+                                                th:text="${yearExperience.year}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Education</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{eduLevel}"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="eduLevel: ${eduLevellist}" th:value="${eduLevel.id}"><span
+                                                th:text="${eduLevel.levelName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Training</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{certification}"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="certification: ${certificationlist}"
+                                                th:value="${certification.id}"><span
+                                                th:text="${certification.certificName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Language</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{language}"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="language: ${languagelist}" th:value="${language.id}"><span
+                                                th:text="${language.languageName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Country</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{country}"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="country: ${countrylist}" th:value="${country.id}"><span
+                                                th:text="${country.countryName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Division</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{division}"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="division: ${divisionlist}" th:value="${division.id}"><span
+                                                th:text="${division.divisionName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Distric</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select th:field="*{distric}"
+                                            class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="division: ${districlist}" th:value="${division.id}"><span
+                                                th:text="${division.districName}"></span></option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-fullAddress"
+                                                                 class=" form-control-label">Company Address</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{fullAddress}"
+                                                                    id="add-fullAddress"
+                                                                    th:value="${jobPost.fullAddress}"
+                                                                    class="form-control"
+                                />
+                                    <span th:class="err" th:if="${#fields.hasErrors('fullAddress')}"
+                                          th:errors="*{fullAddress}">fullAddress Error</span>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-description"
+                                                                 class=" form-control-label">Job Description</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{jobDescription}"
+                                                                    id="add-description"
+                                                                    th:value="${jobPost.jobDescription}"
+                                                                    class="form-control"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('jobDescription')}"
+                                          th:errors="*{jobDescription}">jobDescription Error</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Update
+                            </button>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

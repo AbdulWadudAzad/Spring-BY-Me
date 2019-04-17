@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+<div class="content mt-3" layout:fragment="custom-content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Update Exam</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        <span th:class="err" th:text="${successMsg}"></span>
+                        <form th:object="${exam}" th:action="@{/exam/edit/}+${id}" th:method="POST" enctype="multipart/form-data" class="form-horizontal">
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-Level"
+                                                                 class=" form-control-label">Exam Level</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select id="add-Level" th:field="*{eduLevel}"  class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="eduLevel: ${eduLevellist}" th:value="${eduLevel.id}"><span th:text="${eduLevel.levelName}"></span></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-Subject"
+                                                                 class=" form-control-label">Subject</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select id="add-Subject" th:field="*{eduSubject}"   class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="eduSubject: ${eduSubjectlist}" th:value="${eduSubject.id}"><span th:text="${eduSubject.subName}"></span></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-Board"
+                                                                 class=" form-control-label">Board/University</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select id="add-Board" th:field="*{board}"   class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="board: ${boardlist}" th:value="${board.id}"><span th:text="${board.boardName}"></span></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-Result"
+                                                                 class=" form-control-label">Result</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select id="add-Result" th:field="*{result}"   class="standardSelect">
+                                        <option value=""></option>
+                                        <option th:each="result: ${resultlist}" th:value="${result.id}"><span th:text="${result.resultName}"></span></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-year"
+                                                                 class=" form-control-label">Year</label></div>
+
+                                <div class="col-12 col-md-9"><input type="text" th:value="${exam.year}" th:field="*{year}" id="add-year"
+                                                                    class="form-control" placeholder="Enter Year "/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('year')}"
+                                          th:errors="*{year}">year Error</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Update
+                            </button>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

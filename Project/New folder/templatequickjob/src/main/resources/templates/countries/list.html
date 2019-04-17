@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+
+
+    <div class="content mt-3" layout:fragment="custom-content">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Country Table</strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>SL.No.</th>
+                                    <th>Skill Name</th>
+                                    <th>Edit</th>
+                                    <th>Del</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="c : ${list}">
+                                    <td th:text="${c.id}"></td>
+                                    <td th:text="${c.countryName}"></td>
+                                    <td>
+                                        <a th:href="@{'/country/edit/'+${c.id}}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a th:href="@{'/country/del/'+${c.id}}">Del</a>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+</body>
+</html>

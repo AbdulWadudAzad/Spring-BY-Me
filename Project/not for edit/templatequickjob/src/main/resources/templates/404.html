@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <br >
+        <h1>404 Error Page</h1></br></br>
+        <h3>Oops! Page Not Open</h3>
+        <h4>Nothing Is Found Here!!</h4>
+        <a th:href="@{/index}">Go Back</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h4>Add Role</h4>
+        </div>
+        <div class="col-4">
+            <a  class="btn" th:href="@{/}" >Home</a>
+            <a class="btn" th:href="@{/add}" >Add User</a>
+            <a class="btn" th:href="@{/rolelist}" >Role List</a>
+            <a class="btn" th:href="@{/addrole}" >Add Role</a>
+        </div>
+    </div>
+</div>
+
+<form th:action="@{/editrole/} + ${id}" th:object="${role}" method="post">
+    <table>
+        <input type="hidden" th:field="*{id}" />
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{roleName}"/></td>
+            <td th:class="err" th:if="${#fields.hasErrors('roleName')}" th:errors="*{roleName}">Role Name Error</td>
+            <span th:class="error" th:text="${existMSG}"></span>
+        </tr>
+
+
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+
+    </table>
+
+</form>
+<br/><br/><br/>
+
+<a th:href="@{/}">Home</a>
+<a th:href="@{/rolelist}">Role List</a>
+
+</body>
+</html>

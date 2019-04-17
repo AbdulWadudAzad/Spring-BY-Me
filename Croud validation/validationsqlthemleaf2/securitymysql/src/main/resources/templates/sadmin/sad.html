@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2><a th:href="@{/logout}">Logout</a> </h2>
+<span sec:authorize="hasRole('ROLE_SUPERADMIN')">
+
+</span>
+Super ADMIN only can Access Me
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <style type="text/css">
+    .err{
+        color: red;
+    }
+        .succes{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<form action="#" th:action="@{/edit/} + ${id}" th:object="${user}" method="post">
+   <table>
+       <input type="hidden" th:field="*{id}" th:value="${user.id}"/>
+       <input type="hidden" th:field="*{regiDate}" th:value="${user.regiDate}"/>
+   <tr>
+      <td>Name:</td>
+       <td><input type="text" th:field="*{name}" th:value="${user.name}"/></td>
+       <td th:class="err" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+   </tr>
+       <tr>
+           <td>Age:</td>
+           <td><input type="text" th:field="*{age}" th:value="${user.age}"/></td>
+           <td th:class="err" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+       </tr>
+       <tr>
+           <td>Email:</td>
+           <td><input type="email" th:field="*{email}" th:value="${user.email}"/></td>
+           <td th:class="err" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+       </tr>
+
+
+       <tr>
+           <td><button type="submit">Submit</button></td>
+       </tr>
+   </table>
+    <br/><br/><br/>
+
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/add}">Add</a>
+
+</form>
+</body>
+</html>
