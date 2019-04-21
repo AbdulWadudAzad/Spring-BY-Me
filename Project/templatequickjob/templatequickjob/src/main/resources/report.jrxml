@@ -23,28 +23,28 @@
                 <textElement>
                     <font size="20" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Jasper Report for Task List]]></text>
+                <text><![CDATA[Jasper Report for Job Post List]]></text>
             </staticText>
         </band>
     </pageHeader>
     <columnHeader>
         <band height="37" splitType="Stretch">
             <staticText>
-                <reportElement x="0" y="10" width="70" height="20" uuid="bcaf85c0-57ff-4a34-af27-cbf1330125ae"/>
+                <reportElement x="0" y="10" width="40" height="20" uuid="bcaf85c0-57ff-4a34-af27-cbf1330125ae"/>
                 <textElement>
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Id]]></text>
             </staticText>
             <staticText>
-                <reportElement x="90" y="10" width="100" height="20" uuid="faf9b9ee-7cf2-4ea5-80b8-d371c3c753b9"/>
+                <reportElement x="40" y="10" width="170" height="20" uuid="faf9b9ee-7cf2-4ea5-80b8-d371c3c753b9"/>
                 <textElement>
                     <font size="11" isBold="true"/>
                 </textElement>
                 <text><![CDATA[Company Name]]></text>
             </staticText>
             <staticText>
-                <reportElement x="210" y="10" width="70" height="20" uuid="93727672-9f69-4856-aa26-33837e8dc417"/>
+                <reportElement x="200" y="10" width="170" height="20" uuid="93727672-9f69-4856-aa26-33837e8dc417"/>
                 <textElement>
                     <font fontName="SansSerif" isBold="true"/>
                 </textElement>
@@ -65,7 +65,7 @@
                 <!--<text><![CDATA[Project Module]]></text>-->
             <!--</staticText>-->
             <staticText>
-                <reportElement x="310" y="10" width="100" height="20" uuid="c258f47b-da6a-418d-a5e0-892388ec65c5"/>
+                <reportElement x="380" y="10" width="100" height="20" uuid="c258f47b-da6a-418d-a5e0-892388ec65c5"/>
                 <textElement>
                     <font isBold="true"/>
                 </textElement>
@@ -76,15 +76,15 @@
     <detail>
         <band height="39" splitType="Stretch">
             <textField>
-                <reportElement x="0" y="4" width="70" height="16" uuid="99fa4c16-cfe2-4482-828e-4439abb9e8f0"/>
+                <reportElement x="0" y="4" width="40" height="16" uuid="99fa4c16-cfe2-4482-828e-4439abb9e8f0"/>
                 <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="90" y="4" width="70" height="16" uuid="ba6e9cfa-6d4c-470b-8bc4-eb2e3411c21e"/>
+                <reportElement x="40" y="4" width="170" height="16" uuid="ba6e9cfa-6d4c-470b-8bc4-eb2e3411c21e"/>
                 <textFieldExpression><![CDATA[$F{companyName}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="210" y="4" width="70" height="16" uuid="447253d3-d268-4873-b0b7-9c174c6a7c9f"/>
+                <reportElement x="200" y="4" width="170" height="16" uuid="447253d3-d268-4873-b0b7-9c174c6a7c9f"/>
                 <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
             </textField>
             <!--<textField>-->
@@ -107,7 +107,7 @@
                 <!--<textFieldExpression><![CDATA[$F{company}]]></textFieldExpression>-->
             <!--</textField>-->
             <textField>
-                <reportElement x="310" y="4" width="70" height="16" uuid="447253d3-d268-4873-b0b7-9c174c6a7c9f"/>
+                <reportElement x="380" y="4" width="170" height="16" uuid="447253d3-d268-4873-b0b7-9c174c6a7c9f"/>
                 <textFieldExpression><![CDATA[$F{fullAddress}]]></textFieldExpression>
             </textField>
         </band>

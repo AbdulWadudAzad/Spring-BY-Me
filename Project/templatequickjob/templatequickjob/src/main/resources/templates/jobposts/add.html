@@ -243,6 +243,19 @@
                                 </div>
                             </div>
                             <div class="row form-group">
+                                <div class="col col-md-3"><label for="add-email"
+                                                                 class=" form-control-label">Contact Email</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" th:field="*{contactEmail}"
+                                                                    id="add-email"
+                                                                    class="form-control"
+                                                                    placeholder="Write Contact Email"/>
+                                    <span th:class="err" th:if="${#fields.hasErrors('contactEmail')}"
+                                          th:errors="*{contactEmail}">contactEmail Error</span>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
                                 <div class="col col-md-3"><label for="add-description"
                                                                  class=" form-control-label">Job Description</label>
                                 </div>

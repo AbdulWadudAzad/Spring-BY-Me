@@ -234,7 +234,7 @@ public class JobPostController {
     }
 
 
-    @GetMapping(value = "del/{id}")
+    @GetMapping(value = "/jobpost/del/{id}")
     public String del(@PathVariable("id") Long id) {
         if (id != null) {
             this.repo.deleteById(id);
@@ -269,7 +269,11 @@ public class JobPostController {
         model.addAttribute("viewlist", this.repo.getOne(id));
         return "jobview";
     }
-
+    @GetMapping(value = "/jobapplicationmanual/{id}")
+    public String jobapplicationmanual(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("application", this.repo.getOne(id));
+        return "jobposts/jobapplicationmanual";
+    }
 
     @GetMapping(value = "/jobapplication")
     public String jobapplicationview(Model model, @PathVariable("id") Long id) {
@@ -299,12 +303,12 @@ public class JobPostController {
 
             JobApply jobApply = new JobApply();
             jobApply.setLastModifiedDate(new Date());
-            jobApply.setJobPostId(new JobPost(id));
+            //jobApply.setJobPostId(new JobPost(id));
             jobApply.setUserId(user);
 
             jobApplyRepo.save(jobApply);
 
-            model.addAttribute("view", this.repo.getOne(id));
+            model.addAttribute("viewz", this.repo.getOne(id));
             model.addAttribute("successMsg", "Successfully Saved!");
         }
 

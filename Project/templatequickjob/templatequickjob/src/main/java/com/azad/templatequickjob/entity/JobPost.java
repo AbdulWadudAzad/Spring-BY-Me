@@ -21,6 +21,9 @@ public class JobPost {
     @Column(nullable = true)
     private String vacancy;
 
+    @Column(nullable = true)
+    private String contactEmail;
+
 //    @Column(nullable = true)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "jobTitle_id")
@@ -81,14 +84,13 @@ public class JobPost {
 
     public JobPost() {
     }
-    public JobPost(Long id) {
-        this.id=id;
-    }
-    public JobPost(String companyName, @Size(min = 1, max = 2000, message = "Hey, Size must be between 1 and 2000 character") String jobDescription, String fullAddress, String vacancy, JobTitle jobTitle, EmploymentType employmentType, JobCategory jobCategory, SeniorityLevel seniorityLevel, CompanyIndustry companyIndustry, Country country, Division division, Distric distric, Skill skill, YearExperience yearExperience, Language language, EduLevel eduLevel, Certification certification, User user) {
+
+    public JobPost(String companyName, @Size(min = 1, max = 2000, message = "Hey, Size must be between 1 and 2000 character") String jobDescription, String fullAddress, String vacancy, String contactEmail, JobTitle jobTitle, EmploymentType employmentType, JobCategory jobCategory, SeniorityLevel seniorityLevel, CompanyIndustry companyIndustry, Country country, Division division, Distric distric, Skill skill, YearExperience yearExperience, Language language, EduLevel eduLevel, Certification certification, User user) {
         this.companyName = companyName;
         this.jobDescription = jobDescription;
         this.fullAddress = fullAddress;
         this.vacancy = vacancy;
+        this.contactEmail = contactEmail;
         this.jobTitle = jobTitle;
         this.employmentType = employmentType;
         this.jobCategory = jobCategory;
@@ -257,6 +259,13 @@ public class JobPost {
         this.vacancy = vacancy;
     }
 
+    public String getContactEmail() {
+        return contactEmail;
+    }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
 
     @Override
     public String toString() {
@@ -266,6 +275,7 @@ public class JobPost {
                 ", jobDescription='" + jobDescription + '\'' +
                 ", fullAddress='" + fullAddress + '\'' +
                 ", vacancy='" + vacancy + '\'' +
+                ", contactEmail='" + contactEmail + '\'' +
                 ", jobTitle=" + jobTitle +
                 ", employmentType=" + employmentType +
                 ", jobCategory=" + jobCategory +

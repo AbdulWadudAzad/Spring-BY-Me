@@ -17,41 +17,28 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Jobs</strong>
+                        <strong class="card-title">Application for Jobs</strong>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                             <tr>
                                 <div class="row">
-                                    <div class="col col-lg-12" th:each="grid : ${gridlist}">
+                                    <div class="col col-lg-12" th:each="grid : ${application}">
                                         <section class="card">
                                             <div class="card-body text-secondary">
                                                 <div>
-
-                                                   <a th:href="@{'/jobview/'+${grid.id}}"> <h4 style="color: #0e6498" th:text="${grid.companyName}"></h4></a></br>
-
                                                     <p>
-                                            <span th:each="r:${grid.jobTitle}">
+                                            <span style="color: #0e6498" th:each="r:${grid.jobTitle}">
                                                 <span th:text="${r.jobTitleName}"></span>
                                             </span>
                                                     </p>
-                                                    <p>
-                                            <span th:each="r:${grid.jobCategory}">
-                                                <span th:text="${r.jobCategoryName}"></span>
-                                            </span>
-                                                    </p>
-                                                    <p> <span th:each="r:${grid.yearExperience}">
-                                                <span th:text="${r.year}"></span>
-                                            </span></p>
+                                                    <h4  th:text="${grid.companyName}"></h4></br>
+
+
+                                                    <p style="color: #0e6498" >  Send email to <p th:text="${grid.contactEmail}"></p> with your CV</p>
 
 
 
-
-                                                    <div class="card-body">
-
-                                                       <button> <a th:href="@{'/jobview/'+${grid.id}}">Apply Here</a></button>
-
-                                                    </div>
 
                                                 </div>
                                             </div>

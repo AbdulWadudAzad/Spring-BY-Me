@@ -11,8 +11,12 @@
         <header id="header" class="header" th:fragment="toparea2">
 
             <div class="header-menu">
+                <div class="col-sm-3">
+                    <a class="navbar-brand" th:href="@{/}"><img th:src="@{/images/logo3.png}" alt="Logo"></a>
+                </div>
 
-                <div class="col-sm-7">
+
+                <div class="col-sm-4">
 
                     <div class="header-left">
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
@@ -77,7 +81,7 @@
 
                     <div class="language-select dropdown" id="language-select">
 
-                        <a class="nav-link" th:href="@{/login}">Sign in</a>
+                       <p style="color: deepskyblue"><a  style="color: deepskyblue" class="nav-link" th:href="@{/login}">Login</a> </p>
 
 
                     </div>

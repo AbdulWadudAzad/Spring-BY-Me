@@ -12,8 +12,7 @@
 
                     <div class="content mt-3" layout:fragment="custom-content">
 
-                        <a href="/report" target="_blank">Report Genarate</a>
-                        <a href="/pdf" target="_blank">Report Genarate PDF</a>
+
 
 
                         <div class="animated fadeIn">
@@ -56,6 +55,7 @@
                                     <th>Division</th>
                                     <th>Distric</th>
                                     <th>Company Address</th>
+                                    <th>Contact Email</th>
                                     <th>Job Description</th>
                                     <th>Edit</th>
                                     <th>Del</th>
@@ -136,6 +136,9 @@
 
 
                                     <td th:text="${addre.fullAddress}"></td>
+
+                                    <td th:text="${addre.contactEmail}"></td>
+
                                     <td th:text="${addre.jobDescription}"></td>
 
                                     <td>

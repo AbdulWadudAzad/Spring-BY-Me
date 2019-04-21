@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QuickJob</title>
+</head>
+<body>
+
+
+                    <div class="content mt-3" layout:fragment="custom-content">
+
+
+
+                        <div class="animated fadeIn">
+                            <div class="row">
+
+                                <div class="col-md-12">
+
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <ul class="nav nav-tabs">
+
+                                                <li class="nav-item">
+                                                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Report</a>
+                                                </li>
+
+
+
+                                            </ul>
+                                        </div>
+                        <div class="card-body">
+                            <button  class="btn btn-primary btn-sm" style="color: black; background-color: #00ccff">
+                                <a href="/report" target="_blank">Job Post Report</a>
+                            </button>
+
+                            <button  style="color: black; background-color: #00ccff" class="btn btn-primary btn-sm">
+                                <a href="/pdf" target="_blank">PDF Report</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+</body>
+</html>

@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Jobs Details</strong>
+                        <strong class="card-title">Apply Jobs</strong>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -26,7 +26,7 @@
                                     <div class="col col-lg-12" th:each="grid : ${viewlist}">
                                         <section class="card">
                                             <div class="card-body text-secondary">
-                                                <div>
+                                                <br>
                                                     <p>
                                             <span style="color: #0e6498" th:each="r:${grid.jobTitle}">
                                                 <span th:text="${r.jobTitleName}"></span>
@@ -72,15 +72,22 @@
 
                                                     <p style="color: #0e6498" >  Address:</p> <p th:text="${grid.fullAddress}"></p>
 
+                                                <br/>
+<hr/>
+                                                <br/>
+                                                    <p > For Apply on this job please send an email to <a th:text="${grid.contactEmail}" style="color: orangered"/> with your CV</p>
 
-                                                    <div class="card-body">
 
-                                                        <button type="button" class="btn btn-success btn-sm">Apply Online</button>
 
-                                                    </div>
+                                                    <!--<div class="card-body">-->
+
+                                                        <!--<button type="button" class="btn btn-success btn-sm"><a th:href="@{'/jobapplicationmanual/'+${grid.id}}">Apply</a></button>-->
+
+                                                    <!--</div>-->
 
                                                 </div>
-                                            </div>
+
+
                                         </section>
                                     </div>
                                 </div>

@@ -20,6 +20,11 @@ public class HomeController {
         return "jobpost/add";
     }
 
+    @GetMapping(value = "/reportshow")
+    public String displayreport(){
+        return "reporticonshow";
+    }
+
 //    @GetMapping(value = "/publicview")
 //    public String publicview(){
 //        return "publicview";
