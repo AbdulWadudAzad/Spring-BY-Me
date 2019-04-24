@@ -27,73 +27,100 @@
                                         <section class="card">
                                             <div class="card-body text-secondary">
                                                 <br>
-                                                    <p>
+                                                <p>
                                             <span style="color: #0e6498" th:each="r:${grid.jobTitle}">
                                                 <span th:text="${r.jobTitleName}"></span>
                                             </span>
-                                                    </p>
-                                                    <h4  th:text="${grid.companyName}"></h4></br>
-                                                <p style="color: #0e6498" >  Vacancy: </p> <p th:text="${grid.vacancy}"></p>
+                                                </p>
+                                                <h4 th:text="${grid.companyName}"></h4></br>
+                                                <p style="color: #0e6498"> Vacancy: </p>
+                                                <p th:text="${grid.vacancy}"></p>
 
 
-                                                    <p style="color: #0e6498" > Level:</p>   <p>
+                                                <p style="color: #0e6498"> Level:</p>
+                                                <p>
                                             <span th:each="r:${grid.seniorityLevel}">
                                                 <span th:text="${r.seniority}"></span>
                                             </span>
-                                                    </p>
+                                                </p>
 
-                                                    <p>
-                                                    <p style="color: #0e6498" >  Type: </p><span th:each="r:${grid.employmentType}">
+                                                <p>
+                                                <p style="color: #0e6498"> Type: </p><span
+                                                    th:each="r:${grid.employmentType}">
                                                 <span th:text="${r.empType}"></span>
                                             </span>
-                                                    </p>
+                                                </p>
 
-                                                    <p style="color: #0e6498" >Experience:</p>  <p> <span th:each="r:${grid.yearExperience}">
+                                                <p style="color: #0e6498">Experience:</p>
+                                                <p> <span th:each="r:${grid.yearExperience}">
                                                 <span th:text="${r.year}"></span>
                                             </span></p>
 
-                                                    <p style="color: #0e6498" > Job Description: </p>  <p th:text="${grid.jobDescription}"></p>
+                                                <p style="color: #0e6498"> Job Description: </p>
+                                                <p th:text="${grid.jobDescription}"></p>
 
-                                                    <p style="color: #0e6498" > Skill:</p> <p> <span th:each="r:${grid.skill}">
+                                                <p style="color: #0e6498"> Skill:</p>
+                                                <p> <span th:each="r:${grid.skill}">
                                                 <span th:text="${r.skillName}"></span>
                                             </span></p>
 
-                                                    <p style="color: #0e6498" > Education: </p>  <p> <span th:each="r:${grid.eduLevel}">
+                                                <p style="color: #0e6498"> Education: </p>
+                                                <p> <span th:each="r:${grid.eduLevel}">
                                                 <span th:text="${r.levelName}"></span>
                                             </span></p>
 
-                                                    <p style="color: #0e6498" >  Training: </p>  <p> <span th:each="r:${grid.certification}">
+                                                <p style="color: #0e6498"> Training: </p>
+                                                <p> <span th:each="r:${grid.certification}">
                                                 <span th:text="${r.certificName}"></span>
                                             </span></p>
 
-                                                    <p style="color: #0e6498" >  Language:</p> <p> <span th:each="r:${grid.language}">
+                                                <p style="color: #0e6498"> Language:</p>
+                                                <p> <span th:each="r:${grid.language}">
                                                 <span th:text="${r.languageName}"></span>
                                             </span></p>
 
-                                                    <p style="color: #0e6498" >  Address:</p> <p th:text="${grid.fullAddress}"></p>
+                                                <p style="color: #0e6498"> Address:</p>
+                                                <p th:text="${grid.fullAddress}"></p>
 
                                                 <br/>
+
+
+
+
 <hr/>
+
                                                 <br/>
-                                                    <p > For Apply on this job please send an email to <a th:text="${grid.contactEmail}" style="color: orangered"/> with your CV</p>
 
 
+                                                <p> For Apply on this job please send an email to <a
+                                                        th:text="${grid.contactEmail}" style="color: orangered"/> with
+                                                    your CV</p>
 
-                                                    <!--<div class="card-body">-->
 
-                                                        <!--<button type="button" class="btn btn-success btn-sm"><a th:href="@{'/jobapplicationmanual/'+${grid.id}}">Apply</a></button>-->
+                                                <p>or</p>
 
-                                                    <!--</div>-->
+
+                                                <div class="card-body">
+
+                                                    <button> <a th:href="@{'/jobview/'+${grid.id}}">Apply Here</a></button>
 
                                                 </div>
+
+                                                <!--<div class="card-body">-->
+
+                                                <!--<button type="button" class="btn btn-success btn-sm"><a th:href="@{'/jobapplicationmanual/'+${grid.id}}">Apply</a></button>-->
+
+                                                <!--</div>-->
+
+                                            </div>
 
 
                                         </section>
                                     </div>
+
+                                    <a th:href="@{'/jobviewform/'+${view.id}}">Job Details</a>
                                 </div>
                             </tr>
-
-
 
 
                         </table>
